@@ -1,6 +1,9 @@
-package adventurecore;
+package com.madpcgaming.adventureplus.core;
 
 import java.util.Random;
+
+import com.madpcgaming.adventureplus.blocks.ModBlocks;
+
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -27,7 +30,7 @@ public class Eventmanager implements IWorldGenerator
 
        private void generateSurface(World world, Random random, int x, int z)
        {
-             this.addOreSpawn(AdventurePlus.PaladiumOre, world, random, x, z, 16, 16, 4 + random.nextInt(3), 5, 15, 50);
+             this.addOreSpawn(ModBlocks.PaladiumOre, world, random, x, z, 16, 16, 4 + random.nextInt(3), 5, 15, 50);
        }
 
        private void generateNether(World world, Random random, int x, int z)
@@ -65,7 +68,7 @@ public class Eventmanager implements IWorldGenerator
                     int posX = blockXPos + random.nextInt(maxX);
                     int posY = minY + random.nextInt(diffBtwnMinMaxY);
                     int posZ = blockZPos + random.nextInt(maxZ);
-                    (new WorldGenMinable(block.blockID, maxVeinSize)).generate(world, random, posX, posY, posZ);
+                    (new WorldGenMinable(ModBlocks.PaladiumOre, maxVeinSize)).generate(world, random, posX, posY, posZ);
              }
        }
 }
