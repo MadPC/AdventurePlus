@@ -1,6 +1,7 @@
 package com.madpcgaming.adventureplus.core;
 import com.madpcgaming.adventureplus.blocks.ModBlocks;
 import com.madpcgaming.adventureplus.items.ModItems;
+import com.madpcgaming.adventureplus.lib.AdventureConfig;
 import com.madpcgaming.adventureplus.lib.Reference;
 
 import cpw.mods.fml.common.Mod;
@@ -20,6 +21,7 @@ public class AdventurePlus
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
+		AdventureConfig.initProps(event.getModConfigurationDirectory());
 		ModBlocks.init();
 		ModItems.init();
 	}
