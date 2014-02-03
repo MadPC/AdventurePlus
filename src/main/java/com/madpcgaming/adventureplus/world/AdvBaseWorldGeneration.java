@@ -9,15 +9,17 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import com.madpcgaming.adventureplus.blocks.ModBlocks;
+import com.madpcgaming.adventureplus.lib.AdventureConfig;
 
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class AdvBaseWorldGeneration implements IWorldGenerator
 {
 	
-	//public AdvbaseWorldGeneration()
+	public AdvBaseWorldGeneration()
 	{
-		//paladium = new WorldGenMinable(ModBlocks.PaladiumOre, 3, Blocks.stone);
+		//This is registering your ore as Mineable.
+		paladium = new WorldGenMinable(ModBlocks.PaladiumOre, 3, Blocks.stone);
 	}
 
 	@Override
@@ -45,7 +47,20 @@ public class AdvBaseWorldGeneration implements IWorldGenerator
 	void generateUndergroundOres(Random random, int xChunk, int zChunk, World world)
 	{
 		int xPos, yPos, zPos;
-		
+		//This is actually generating the ore.
+		if(AdventureConfig.generatePaladium)
+		{
+			for(int q = 0; q <= AdventureConfig.paladiumuDensity; q++)
+			{
+				xPos = xChunk + random.nextInt(16);
+				yPos = AdventureConfig.paladiumuMinY + random.nextInt(AdventureConfig.paladiumuMaxY - AdventureConfig.paladiumuMinY);
+				zPos = zChunk + random.nextInt(16);
+				paladium.generate(world, random, xPos, yPos, zPos);
+			}
+		}
 	}
+	
+	//This is just registering the name
+	WorldGenMinable paladium;
 
 }

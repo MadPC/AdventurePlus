@@ -46,9 +46,19 @@ public class AdventureConfig
 		
 		generatePaladium = config.get("Worldgen Disabler", "Generate Paladium", true).getBoolean(true);
 		
+		paladiumuDensity = config.get("WorldGen", "Palladium Underground Density", 3).getInt(3);
+		
+		paladiumuMinY = config.get("WorldGen", "Palladium Underground Min Y", 10).getInt(10);
+		paladiumuMaxY = config.get("WorldGen", "Palladium Underground Max Y", 55).getInt(55);
+		
 	}
 	
 	public static File cfglocation;
 	
 	public static boolean generatePaladium;
+	
+	public static int paladiumuDensity;
+	
+	public static int paladiumuMinY;
+	public static int paladiumuMaxY;
 }
