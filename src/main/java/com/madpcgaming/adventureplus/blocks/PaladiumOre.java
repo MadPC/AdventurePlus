@@ -8,7 +8,7 @@ public class PaladiumOre extends Block
 {
        public PaladiumOre()
        {
-             super(Material.field_151576_e);
-             this.func_149647_a(CreativeTabs.tabBlock);
+             super(Material.rock);
+             this.setCreativeTab(CreativeTabs.tabBlock);
        }
 }
