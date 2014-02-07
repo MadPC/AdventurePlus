@@ -7,6 +7,7 @@ import net.minecraftforge.common.config.Configuration;
 
 public class AdventureConfig
 {
+	@SuppressWarnings({ "unused", "rawtypes" })
 	public static void initProps(File location)
 	{
 		File newFile = new File(location + "/Adventure+.config");
